@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BearerExpress</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= csrf_meta_tags %>
+
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body id="page-top">
+
+
+
+  	<header>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+
+
+     <%= link_to root_path,class: 'navbar-brand' do %>
+      
+     Bearer Express
+      <% end %>
+   
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+           <% if user_signed_in? %>
+
+ <%= link_to edit_user_registration_path, class: 'nav-link' do %>Edit registration<% end %>
+ <%= link_to new_item_path, class: 'nav-link' do %>Add Item<% end %>
+  <%= link_to destroy_user_session_path,:method => :delete, class: 'nav-link' do %>Logout<% end %>
+ 
+       
+ 
+<% else %>
+ 
+ <%= link_to new_user_registration_path, class: 'nav-link' do %>Register<% end %>
+  
+   <%= link_to new_user_session_path, class: 'nav-link' do %>Login<% end %>
+
+ 
+<% end %>
+
+           
+          </ul>
+         
+        </div>
+      </nav>
+    </header>
+    
+<br />
+<br />
+	
+ <div class="row">
+
+ <div class="col-sm-2" style="background-color:#dae3f2;">
+
+ 	 <br/>
+     <br/>
+      <br/>
+     <br/>
+      <br/>
+     <br/>
+
+ 	</div>
+
+ 	<div class="col-sm-8" style="background-color:white;">
+
+
+ 		<%= image_tag("logo.png", class: "img-fluid") %>
+ 		<%= yield %>
+
+    <div align="center">
+    
+<%= form_tag(item_search_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Items" ,:required => true%>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+</div>
+
+
+ 		 <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+    <!-- Begin page content -->
+ 
+    
+
+ 	</div>
+
+ 	<div class="col-sm-2" style="background-color:#dae3f2;">
+
+ 	</div>
+
+
+
+
+ </div>
+
+     
+     
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer>
+
+  
+
+	 <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up">
+      </i>
+    </a>
+
+
+
+
+
+
+    <%= javascript_include_tag( 'sb-admin.js' ) %>
+
+     <%= javascript_include_tag( 'sb-admin-datatables.js' ) %>
+ 
+    <%= javascript_include_tag( 'jquery.dataTables.js' ) %>
+
+   
+  </body>
+</html>

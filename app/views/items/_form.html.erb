@@ -1,0 +1,47 @@
+
+ <div class="container">
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-header">Create Item</div>
+      <div class="card-body">
+
+<%= form_with(model: item, local: true) do |form| %>
+  <% if item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :item_name,class: 'form-control' %>
+  </div>
+
+
+
+
+<div class="form-group">
+    <%= form.label :status %>
+   <%= form.select :status, ['pending', 'lost', 'damaged', 'delivered'],class: 'form-control'%>
+
+  </div>
+
+
+  <div class="form-group">
+    <%= form.submit "Create", class: 'btn btn-primary btn-block'%>
+  </div>
+<% end %>
+
+
+</div>
+
+</div>
+
+</div>
+
+
