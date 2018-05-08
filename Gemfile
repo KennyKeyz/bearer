@@ -72,3 +72,6 @@ gem 'cancancan'
 
 
 
+ruby "2.5.0"
+
+
