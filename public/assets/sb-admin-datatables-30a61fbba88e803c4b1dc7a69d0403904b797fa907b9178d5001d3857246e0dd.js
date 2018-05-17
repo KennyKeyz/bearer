@@ -4,12 +4,11 @@
 $(document).ready(function() {
   $('#activitiesTable').dataTable({
   	 /* No ordering applied by DataTables during initialisation */
-  	   dom: 'Bfrtip',
-  	      buttons: [
+  	 
+        "order": [],
+        buttons: [
             'print'
-        ],
-        "order": []
-
+        ]
   });
 });
 

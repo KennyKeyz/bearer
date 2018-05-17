@@ -10,9 +10,18 @@
 //= require bootstrap-sprockets
 
 
-//= require sb-admin
+
+
+//= require jquery.dataTables.js
+
+
+//= require buttons.print.min.js
+//= require dataTables.buttons.min.js
 //= require sb-admin-datatables
-//= require jquery.dataTables
+
+
+
+
 
 
 //= require turbolinks

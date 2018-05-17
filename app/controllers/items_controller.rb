@@ -6,7 +6,9 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    #@items = Item.all.order("created_at DESC")
+
+    @items = Item.where(user_id: current_user.id).order("created_at DESC")
 
  #   if params[:search]
   #  @items = Item.where('name LIKE ?', "%#{params[:search]}%")
@@ -47,9 +49,9 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.user = current_user
 
-    @item.code = rand(1..150)
+    @item.code = rand(050..900)
 
-    @item.tracking_number = @item.name + @item.code;
+    @item.tracking_number = @item.name[0,3] + @item.code;
 
     respond_to do |format|
       if @item.save
